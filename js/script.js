@@ -105,62 +105,62 @@ generateTitleLinks();
 
 
 function generateTags(){
-/* find all articles */
+/* [DONE] find all articles */
 
   const articles = document.querySelectorAll(optArticleSelector);
   console.log(articles);
 
-  /* START LOOP: for every article: */
+  /* [DONE] START LOOP: for every article: */
 
   for (let article of articles){
     console.log(article);
 
-    /* find tags wrapper */
+    /* [DONE] find tags wrapper */
 
     const tagList = article.querySelector(optArticleTagsSelector);
     console.log(tagList);
     tagList.innerHTML = '';
 
 
-    /* make html variable with empty string */
+    /* [DONE] make html variable with empty string */
 
     let html = '';
     
-    /* get tags from data-tags attribute */
+    /* [DONE] get tags from data-tags attribute */
 
     const articleTags = article.getAttribute('data-tags');  
     console.log(articleTags);
 
-    /* split tags into array */
+    /* [DONE] split tags into array */
 
     const articleTagsArray = articleTags.split(' ');
     console.log(articleTagsArray);
 
-    /* START LOOP: for each tag */
+    /* [DONE] START LOOP: for each tag */
 
     for(let tag of articleTagsArray){
       console.log(tag);
-      /* generate HTML of the link */
 
-      const tagHTML = '<li><a href="#' + 'tag-' + tag + '">tag</a></li>';
-      //const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+      /* [DONE] generate HTML of the link */
+
+      const tagHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
       console.log(tagHTML);
-      // <li><a href="#tag-cat">cat</a></li>
-
-      /* add generated code to html variable */
+    
+      /* [DONE] add generated code to html variable */
 
       html = html + tagHTML;
       console.log(html);
     
-    /* END LOOP: for each tag */
+      /* [DONE] END LOOP: for each tag */
+
     }
-    /* insert HTML of all the links into the tags wrapper */
+
+    /* [DONE] insert HTML of all the links into the tags wrapper */
 
     tagList.innerHTML = html;
 
-  /* END LOOP: for every article: */
+  /* [DONE] END LOOP: for every article: */
   }
 }
 
 generateTags();
-

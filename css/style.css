@@ -81,6 +81,11 @@ body {
   display: inline-block;
 }
 
+.post-tags ul li {
+  /* dodany przeze mnie */
+  margin: 0 5px;
+}
+
 /* Authors */
 .authors li {
   margin-bottom: 12px;
