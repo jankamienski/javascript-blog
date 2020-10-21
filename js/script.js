@@ -186,7 +186,7 @@ function tagClickHandler(event){
     console.log(equalLink);
 
     /* add class active */
-    equalLink.classList.add(' active ') ;
+    equalLink.classList.add(' active ');
     console.log(equalLink);
 
     /* END LOOP: for each found tag link */
@@ -200,7 +200,7 @@ function tagClickHandler(event){
 function addClickListenersToTags(){
 
   /* find all links to tags */
-  const allLinksToTags = document.querySelectorAll('a.active[href^="#tag-"]');
+  const allLinksToTags = document.querySelectorAll('a.[href^="#tag-"]');
 
   /* START LOOP: for each link */
   for (let linkToTag of allLinksToTags){
