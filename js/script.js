@@ -136,9 +136,10 @@ function generateTags(){
     
       /* [DONE] END LOOP: for each tag */
     }
-
+    console.log(tagList.innerHTML);
     /* [DONE] insert HTML of all the links into the tags wrapper */
     tagList.innerHTML = html;
+    console.log(tagList.innerHTML);
 
   /* [DONE] END LOOP: for every article: */
   }
@@ -187,21 +188,21 @@ function tagClickHandler(event){
     console.log(equalLink);
 
     /* add class active */
-    equalLink.classList.add(' active ');
+    equalLink.classList.add('active');
     console.log(equalLink);
 
     /* END LOOP: for each found tag link */
   }
 
   /* execute function "generateTitleLinks" with article selector as argument */
-  generateTitleLinks('[data-tags~="' + tag + '"]');
+  generateTitleLinks('[data-tags~="' + tag + '"]');   //szuka tego co ma miedzy innym ite wartosc. query selector  general siblings combinator
 
 }
 
 function addClickListenersToTags(){
 
   /* find all links to tags */
-  const allLinksToTags = document.querySelectorAll('a.[href^="#tag-"]');
+  const allLinksToTags = document.querySelectorAll('a[href^="#tag-"]');
 
   /* START LOOP: for each link */
   for (let linkToTag of allLinksToTags){
@@ -232,7 +233,7 @@ function generateAuthors() {
 
 
     /* [DONE] make html variable with empty string */
-    let html = '';
+    //let html = '';
 
     /* [DONE] get authors from data-author attribute */
     const articleAuthors = article.getAttribute('data-author');  
@@ -244,12 +245,12 @@ function generateAuthors() {
     console.log(authorHTML);
         
     /* [DONE] add generated code to html variable */
-    html = html + authorHTML;
-    console.log(html);
+    //html = html + authorHTML;
+    //console.log(html);
          
     /* [DONE] insert HTML of all the links into the tags wrapper */
-    authorList.innerHTML = html;
-    
+    //authorList.innerHTML = html;
+    authorList.innerHTML = authorHTML;
     /* [DONE] END LOOP: for every article: */
   }
 }
@@ -297,7 +298,7 @@ function authorClickHandler(event){
     console.log(equalLink);
 
     /* add class active */
-    equalLink.classList.add(' active ');
+    equalLink.classList.add('active');
     console.log(equalLink);
 
     /* END LOOP: for each found author link */
@@ -311,7 +312,7 @@ function authorClickHandler(event){
 function addClickListenersToAuthors(){
 
   /* find all links to author */
-  const allLinksToAuthor = document.querySelectorAll('a.[href^="#author-"]');
+  const allLinksToAuthor = document.querySelectorAll('a[href^="#author-"]');
 
   /* START LOOP: for each link */
   for (let linkToAuthor of allLinksToAuthor){
