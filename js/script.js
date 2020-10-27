@@ -124,7 +124,6 @@ function calculateTagClass(count, params) {
   return optCloudClassPrefix + classNumber;
 }
 
-
 function generateTags(){
 
   /* [NEW] create a new variable allTags with an empty object */
@@ -204,10 +203,12 @@ function generateTags(){
   /* [NEW] generate code of a link and add it to allTagsHTML */
     //allTagsHTML += tag + ' (' + allTags[tag] + ') ';
   
-    const tagLinkHTML = '<li>' + calculateTagClass(allTags[tag], tagsParams) + '</li>';
-    console.log('tagLinkHTML:', tagLinkHTML);
-
-    allTagsHTML += tagLinkHTML;
+    //const tagLinkHTML = '<li>' + calculateTagClass(allTags[tag], tagsParams) + '</li>';
+    allTagsHTML += '<li><a class="' + calculateTagClass(allTags[tag], tagsParams) + '" href="#tag-' + tag + '">' + tag + '</a></li>';
+    //<li><a href="#">code</a> <span>(5)</span></li>
+    console.log('allTagsHTML:', allTagsHTML);
+    console.log(allTags[tag], tagsParams);
+   
 
   /* [NEW] END LOOP: for each tag in allTags: */
   }
@@ -382,10 +383,10 @@ function generateAuthors() {
   /* [NEW] generate code of a link and add it to allTagsHTML */
   // allAuthorsHTML += author + ' (' + allAuthors[author] + ') ';
 
-    const authorLinkHTML = '<li>' + calculateAuthorClass(allAuthors[author], authorsParams) + '</li>';
-    console.log('authorLinkHTML:', authorLinkHTML);
-    allAuthorsHTML += authorLinkHTML;
-
+    //allAuthorsHTML = '<li>' + calculateAuthorClass(allAuthors[author], authorsParams) + '</li>';
+    allAuthorsHTML += '<li><a href="#author-' + author + '">' + author + '(' + allAuthors[author] + ')' + '</a></li>';
+    console.log('allAuthorsHTML:', allAuthorsHTML);
+  
 
   }
   /* [NEW] END LOOP: for each tag in allTags: */
