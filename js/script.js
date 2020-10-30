@@ -84,9 +84,9 @@ function generateTitleLinks(customSelector = ''){
 
   
     /* [DONE] create HTML of the link */
-    //const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+    //  const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
     const linkHTMLData = {id: articleId, title: articleTitle};
-    const linkHTML = templates.tagLink(linkHTMLData);
+    const linkHTML = templates.articleLink(linkHTMLData);
     console.log(linkHTML);
     
     /* [DONE] insert link into titleList */
@@ -172,7 +172,6 @@ function generateTags(){
       /* [DONE] add generated code to html variable */
       html = html + linkHTML;
       console.log(html);
-
 
 
 
@@ -327,7 +326,6 @@ function calculateAuthorClass(count, params) {
   return optAuthorsListSelector + classNumber;
 }
 
-
 function generateAuthors() {
 
   /* [NEW] create a new variable allAuthors with an empty object */
@@ -346,7 +344,6 @@ function generateAuthors() {
     console.log(authorList);
     authorList.innerHTML = '';
 
-
     /* [DONE] make html variable with empty string */
     //let html = '';
 
@@ -356,8 +353,8 @@ function generateAuthors() {
 
     /* [DONE] generate HTML of the link */
 
-    const authorHTML ='<a href="#author-' + articleAuthors + '">' + articleAuthors + '</a>';
-    console.log(authorHTML);
+    //const authorHTML ='<a href="#author-' + articleAuthors + '">' + articleAuthors + '</a>';
+    //console.log(authorHTML);
         
     const linkHTMLData = {author: articleAuthors};
     const linkHTML = templates.authorLink(linkHTMLData);
@@ -381,7 +378,7 @@ function generateAuthors() {
   }
 
   /* [NEW] find list of tags in right column */
-  const authorList = document.querySelector('.authors');
+  const authorList = document.querySelector(optArticleAuthorSelector);
 
   /* [NEW] add html from allTags to tagList */
   //authorList.innerHTML = allAuthors.join(' ');
@@ -389,17 +386,22 @@ function generateAuthors() {
   const authorsParams = calculateAuthorsParams(allAuthors);
   console.log('authorsParams:', authorsParams);
 
-
   /* [NEW] create variable for all links HTML code */
   let allAuthorsHTML = '';
 
   /* [NEW] START LOOP: for each tag in allTags: */
   for(let author in allAuthors){
+
+    
+
   /* [NEW] generate code of a link and add it to allTagsHTML */
   // allAuthorsHTML += author + ' (' + allAuthors[author] + ') ';
 
     //allAuthorsHTML = '<li>' + calculateAuthorClass(allAuthors[author], authorsParams) + '</li>';
-    allAuthorsHTML += '<li><a href="#author-' + author + '">' + author + '(' + allAuthors[author] + ')' + '</a></li>';
+    //allAuthorsHTML += '<li><a href="#author-' + author + '"><span>' + author + '</span></a>' + ' (' + allAuthors[author] + ') </li>' ;
+    // allAuthorsHTML += '<li><a class="' + calculateAuthorClass(allAuthors[author], authorsParams) + '" href="#author-' + author + '">' + author + '</a></li>';
+    //<a href="#"><span class="author-name">Marion Berry</span></a>
+    const authorlinkHTML = '<a href="#author-' + author + '"><span>' + 'by  ' + author + '</span></a>';
     console.log('allAuthorsHTML:', allAuthorsHTML);
   
 
@@ -409,16 +411,6 @@ function generateAuthors() {
   /*[NEW] add HTML from allTagsHTML to tagList */
   authorList.innerHTML = allAuthorsHTML;
 }
-
-
-
-
-
-
-
-
-
-    
 
 generateAuthors();
     
@@ -489,3 +481,4 @@ function addClickListenersToAuthors(){
   }
 }
 addClickListenersToAuthors();
+
